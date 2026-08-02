@@ -772,7 +772,7 @@ body::-webkit-scrollbar-thumb { border: 3px solid #eef2fc; border-radius: var(--
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, transparent 0%, transparent 63%, rgba(10,31,112,.93) 72%, rgb(8,23,88) 82%, rgb(8,23,88) 100%),
+    linear-gradient(90deg, rgb(7,15,62) 0%, rgb(7,15,62) 26%, rgba(7,15,62,.97) 34%, transparent 49%, transparent 63%, rgba(10,31,112,.93) 72%, rgb(8,23,88) 82%, rgb(8,23,88) 100%),
     linear-gradient(90deg, rgba(7,15,62,.8) 0%, rgba(10,24,91,.6) 43%, rgba(12,28,102,.22) 72%, rgba(8,19,73,.34) 100%),
     linear-gradient(180deg, rgba(5,12,52,.16) 0%, rgba(7,16,64,.02) 48%, rgba(5,12,52,.5) 100%);
 }
