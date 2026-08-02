@@ -93,6 +93,12 @@ export default function Home() {
       <SiteHeader />
 
       <section id="top" className="hero">
+        <div className="hero-video" aria-hidden="true">
+          <video autoPlay muted loop playsInline preload="metadata">
+            <source src="/video/sajj-hero.mp4" type="video/mp4" />
+          </video>
+          <span className="hero-video-shade" />
+        </div>
         <div className="hero-orb hero-orb-one" />
         <div className="hero-orb hero-orb-two" />
         <div className="hero-grid-lines" aria-hidden="true" />
