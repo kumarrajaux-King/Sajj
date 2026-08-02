@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import Image from "next/image";
 import { Arrow } from "@/components/arrow";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -169,7 +170,15 @@ export default function Home() {
             <a className="text-link" href="/job-seekers">How we place people <Arrow /></a>
           </div>
           <div className="principle-row">
-            <div className="target-small" aria-hidden="true"><i /><i /><i /><b /></div>
+            <div className="principle-visual">
+              <Image
+                src="/images/cooperation-technology-clean.png"
+                alt="Digital cooperation interface with a handshake and technology icons"
+                width={1536}
+                height={1024}
+                sizes="(max-width: 760px) calc(100vw - 36px), 44vw"
+              />
+            </div>
             <div className="principle-copy">
               <p className="eyebrow">01 · Depth</p>
               <h3>We know the work, not just the words</h3>
