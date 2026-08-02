@@ -193,7 +193,15 @@ export default function Home() {
               <p>Network first, database second, advertising last. A brief on Monday is three to five people worth your time by Friday — never a CV dump, and never people we haven&apos;t spoken to.</p>
               <a className="button button-border" href="/services">See how we work <Arrow /></a>
             </div>
-            <div className="target-small" aria-hidden="true"><i /><i /><i /><b /></div>
+            <div className="principle-visual principle-visual-talent">
+              <Image
+                src="/images/global-talent-sajj-blue.png"
+                alt="Technology professional beside a global puzzle representing fast access to specialist talent"
+                width={1024}
+                height={1536}
+                sizes="(max-width: 760px) calc(100vw - 36px), 44vw"
+              />
+            </div>
           </div>
         </div>
       </section>
