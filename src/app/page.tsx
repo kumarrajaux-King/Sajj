@@ -99,10 +99,7 @@ export default function Home() {
           </video>
           <span className="hero-video-shade" />
         </div>
-        <div className="hero-orb hero-orb-one" />
-        <div className="hero-orb hero-orb-two" />
         <div className="hero-grid-lines" aria-hidden="true" />
-        <div className="target-rings" data-parallax="0.035" aria-hidden="true"><i /><i /><i /><i /><b /></div>
         <div className="shell hero-inner">
           <div className="hero-copy" data-reveal>
             <p className="eyebrow light"><span /> IT &amp; Digital Recruitment</p>
