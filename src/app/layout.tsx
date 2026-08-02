@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MotionController } from "@/components/motion-controller";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU">
-      <body>{children}</body>
+      <body><MotionController />{children}</body>
     </html>
   );
 }

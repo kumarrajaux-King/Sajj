@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import Image from "next/image";
 import { Arrow } from "@/components/arrow";
 import { SiteFooter } from "@/components/site-footer";
@@ -80,31 +80,6 @@ export default function Home() {
   const [milestoneIndex, setMilestoneIndex] = useState(0);
   const [alertCreated, setAlertCreated] = useState(false);
 
-  useEffect(() => {
-    const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      elements.forEach((element) => element.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
-
   function submitAlert(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setAlertCreated(true);
@@ -120,11 +95,15 @@ export default function Home() {
       <section id="top" className="hero">
         <div className="hero-orb hero-orb-one" />
         <div className="hero-orb hero-orb-two" />
-        <div className="target-rings" aria-hidden="true"><i /><i /><i /><i /><b /></div>
+        <div className="hero-grid-lines" aria-hidden="true" />
+        <div className="target-rings" data-parallax="0.035" aria-hidden="true"><i /><i /><i /><i /><b /></div>
         <div className="shell hero-inner">
           <div className="hero-copy" data-reveal>
             <p className="eyebrow light"><span /> IT &amp; Digital Recruitment</p>
-            <h1>Specialist hiring for<br />teams that <em>build.</em></h1>
+            <h1>
+              <span className="hero-line"><span>Specialist hiring for</span></span>
+              <span className="hero-line"><span>teams that <em>build.</em></span></span>
+            </h1>
             <p className="hero-lede">Engineers, designers and data specialists — placed contract or permanent, matched by recruiters who know the work.</p>
             <div className="hero-actions">
               <a className="button button-white" href="/contact">Submit a role <Arrow /></a>
@@ -136,6 +115,7 @@ export default function Home() {
             <div><strong>12k</strong><span>placements across tech &amp; digital</span></div>
             <div><strong>92%</strong><span>of roles filled from first shortlist</span></div>
           </div>
+          <a className="scroll-cue" href="#services" aria-label="Scroll to explore services"><span>Scroll to explore</span><i /></a>
         </div>
       </section>
 
@@ -144,7 +124,7 @@ export default function Home() {
         <div className="marquee"><div className="marquee-track">{[...clientNames, ...clientNames].map((name, index) => <span key={`${name}-${index}`}>{name}</span>)}</div></div>
       </section>
 
-      <section className="section section-tint">
+      <section id="services" className="section section-tint">
         <div className="shell" data-reveal>
           <div className="section-heading-row">
             <h2>Four ways we work</h2>
@@ -164,12 +144,12 @@ export default function Home() {
       </section>
 
       <section className="section noise-section">
-        <div className="shell" data-reveal>
-          <div className="section-heading-row align-end">
+        <div className="shell">
+          <div className="section-heading-row align-end" data-reveal>
             <h2>Recruitment with the<br />noise removed</h2>
             <a className="text-link" href="/job-seekers">How we place people <Arrow /></a>
           </div>
-          <div className="principle-row">
+          <div className="principle-row" data-reveal>
             <div className="principle-visual">
               <Image
                 src="/images/cooperation-technology-clean.png"
@@ -186,7 +166,7 @@ export default function Home() {
               <a className="button button-border" href="/about">Why Sajj <Arrow /></a>
             </div>
           </div>
-          <div className="principle-row reverse">
+          <div className="principle-row reverse" data-reveal>
             <div className="principle-copy">
               <p className="eyebrow">02 · Speed</p>
               <h3>Briefed once, shortlisted fast</h3>
@@ -264,7 +244,7 @@ export default function Home() {
           <div className="people-collage" aria-label="Sajj recruitment specialists">
             <div className="people-photo photo-one" role="img" aria-label="Technology professionals collaborating" />
             <div className="people-photo photo-two" role="img" aria-label="Recruitment consultant at work" />
-            <div className="people-accent">SAJJ<br /><strong>People first.</strong></div>
+          <div className="people-accent" data-parallax="0.045">SAJJ<br /><strong>People first.</strong></div>
           </div>
           <div className="people-copy"><p className="eyebrow"><span /> Talk to a specialist</p><h2>Recruiters who know the work. Talk to the desk that owns your market.</h2><p>No call centre, no generalists reading a spec back to you. You get one specialist consultant, start to finish — and honest advice even when it costs us the fee.</p><a className="button button-blue" href="/contact">Start a conversation <Arrow /></a></div>
         </div>
